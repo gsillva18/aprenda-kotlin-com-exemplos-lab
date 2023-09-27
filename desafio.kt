@@ -48,7 +48,6 @@ data class Formacao(val nome: String, val nivel: Nivel,val conteudos: MutableSet
     }
 
     fun removerConteudo(id: Int){
-        // val conteudo = conteudos.find{ it.id.equals(id)}
         buscarConteudo(id)?.let{
             conteudos.remove(it)
             LogTrace.log(mensagem = "Conteudo deletado com sucesso da formação $nome")
@@ -56,7 +55,6 @@ data class Formacao(val nome: String, val nivel: Nivel,val conteudos: MutableSet
     }
 
     fun atualizarConteudo(id: Int, nomeUpdate: String){
-        // val conteudo = conteudos.find{ it.id.equals(id)}
         buscarConteudo(id)?.let{
             it.nome = nomeUpdate
             LogTrace.log(mensagem = "Conteudo atualizado com sucesso na formação $nome")
@@ -72,7 +70,6 @@ data class Formacao(val nome: String, val nivel: Nivel,val conteudos: MutableSet
     }
 
     fun cancelarMatricula(matricula: Int){
-        // val usuario = inscritos.find{ it.matricula.equals(matricula)}
         buscarUsuario(matricula)?.let{
             inscritos.remove(it)
             LogTrace.log(mensagem = "Matrícula cancelada com sucesso na formação $nome")
@@ -80,7 +77,6 @@ data class Formacao(val nome: String, val nivel: Nivel,val conteudos: MutableSet
     }
 
     fun listarUsuario(matricula: Int){
-        // val usuario = inscritos.find{ it.matricula.equals(matricula)}
         buscarUsuario(matricula)?.let{
             println("[Aluno] - ${it.nome}")
         }?: LogTrace.log(TipoLog.ERROR, "Usuário não encontrado")
@@ -94,7 +90,6 @@ data class Formacao(val nome: String, val nivel: Nivel,val conteudos: MutableSet
     }
 
     fun listarConteudo(id: Int){
-        // val conteudo = conteudos.find{ it.id.equals(id)}
         buscarConteudo(id)?.let{
             println("[Conteúdo] - ${it.nome}")
         }?: LogTrace.log(TipoLog.ERROR, "Conteúdo não encontrado")
